@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DealSleuth — Black Friday 2026 deal finder</title>
+<meta name="description" content="Real Black Friday and Cyber Monday 2026 deals, each checked on Nov 27, 2026, with an honest verdict on whether it is really a deal.">
+<link rel="stylesheet" href="style.css">
+<script type="module" src="app.js"></script>
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <div class="brand">
+      <h1>Deal<span>Sleuth</span></h1>
+    </div>
+    <p class="tagline"><strong>Black Friday 2026, checked deal by deal.</strong>
+      Every price below was read on <strong>Nov 27, 2026</strong> at the store or in a
+      deals roundup that names the store, and every deal carries an honest verdict:
+      a new low, a strong price, or a routine sale. No inflated list prices taken on trust.</p>
+    <div class="stats" aria-label="Board summary">
+      <div class="stat"><b id="stat-deals">–</b><span>Deals checked</span></div>
+      <div class="stat"><b id="stat-lows">–</b><span>New lows</span></div>
+      <div class="stat"><b id="stat-avg">–</b><span>Average discount</span></div>
+      <div class="stat"><b id="stat-stores">–</b><span>Stores</span></div>
+      <div class="stat"><b id="stat-cats">–</b><span>Categories</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="filters">
+  <div class="filters-inner">
+    <input type="search" id="search" placeholder="Search deals, stores, categories…" aria-label="Search deals">
+    <label for="filter-category">Category</label>
+    <select id="filter-category" aria-label="Filter by category"></select>
+    <label for="filter-store">Store</label>
+    <select id="filter-store" aria-label="Filter by store"></select>
+    <label for="filter-discount">Discount</label>
+    <select id="filter-discount" aria-label="Filter by minimum discount">
+      <option value="0">Any discount</option>
+      <option value="20">20% off or more</option>
+      <option value="40">40% off or more</option>
+      <option value="50">50% off or more</option>
+    </select>
+    <label for="sort">Sort</label>
+    <select id="sort" aria-label="Sort deals">
+      <option value="best">Best deals first</option>
+      <option value="discount">Biggest discount %</option>
+      <option value="saving">Biggest saving $</option>
+      <option value="price">Lowest price</option>
+    </select>
+    <button class="clear" id="clear-filters" type="button">Clear filters</button>
+  </div>
+</div>
+
+<main>
+  <p id="result-count">Loading deals…</p>
+  <div class="grid" id="deal-grid"></div>
+
+  <section class="legend" aria-label="How the verdicts work">
+    <h2>How to read the verdicts</h2>
+    <ul>
+      <li><span class="badge sig-low">NEW LOW</span> Lowest price we have seen for this item.</li>
+      <li><span class="badge sig-strong">STRONG PRICE</span> A genuinely good price, well under its usual price.</li>
+      <li><span class="badge sig-routine">ROUTINE SALE</span> On sale, but not special: a small saving, or a padded list price.</li>
+    </ul>
+    <p>Each card shows when its price was checked and the source that reported it.
+      Prices move fast on Black Friday, so confirm the price at the store before you buy.</p>
+  </section>
+</main>
+
+<footer>
+  <div class="inner">
+    <p>DealSleuth is an independent deal finder built for Black Friday and Cyber Monday 2026.
+      Prices were checked on Nov 27, 2026 and can change; store links open the store's own
+      search for the exact product. DealSleuth is not affiliated with Amazon, Best Buy,
+      Walmart or HP.</p>
+  </div>
+</footer>
+</body>
+</html>

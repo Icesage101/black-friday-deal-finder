@@ -1,0 +1,321 @@
+/* DealSleuth: a dark deal-board look. Deep ink blue, warm amber accent,
+   roomy cards. Everything here is plain CSS, no framework, no webfont. */
+
+:root {
+  --ink: #101623;
+  --ink-soft: #1a2233;
+  --paper: #f4f1ea;
+  --card: #ffffff;
+  --line: #d9d4c8;
+  --text: #1c2433;
+  --muted: #5b6472;
+  --amber: #e8a020;
+  --amber-dark: #b97d0d;
+  --green: #1e7a46;
+  --green-bg: #dff0e4;
+  --amber-bg: #fdf0d0;
+  --grey-bg: #e8e6e1;
+  --red: #b3261e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  background: var(--paper);
+  color: var(--text);
+  line-height: 1.45;
+}
+
+/* --- header ----------------------------------------------------------- */
+
+header.hero {
+  background: var(--ink);
+  color: #f7f3ea;
+  padding: 28px 20px 22px;
+}
+
+.hero-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: 34px;
+  letter-spacing: -0.5px;
+}
+
+.brand h1 span { color: var(--amber); }
+
+.tagline {
+  margin: 6px 0 0;
+  font-size: 16px;
+  color: #c9cfdb;
+  max-width: 720px;
+}
+
+.tagline strong { color: #ffffff; }
+
+.stats {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+.stat {
+  background: var(--ink-soft);
+  border: 1px solid #2c3850;
+  border-radius: 10px;
+  padding: 10px 14px;
+  min-width: 110px;
+}
+
+.stat b {
+  display: block;
+  font-size: 24px;
+  color: var(--amber);
+  line-height: 1.1;
+}
+
+.stat span { font-size: 12px; color: #aeb6c6; text-transform: uppercase; letter-spacing: 0.4px; }
+
+/* --- filters ----------------------------------------------------------- */
+
+.filters {
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+  padding: 14px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+.filters-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.filters label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: var(--muted);
+}
+
+.filters input[type="search"],
+.filters select {
+  font: inherit;
+  font-size: 15px;
+  padding: 9px 11px;
+  border: 1px solid #b9bec9;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--text);
+}
+
+.filters input[type="search"] {
+  flex: 1 1 220px;
+  min-width: 180px;
+}
+
+.filters select { max-width: 180px; }
+
+button.clear {
+  font: inherit;
+  font-size: 14px;
+  padding: 9px 14px;
+  border: 1px solid #b9bec9;
+  border-radius: 8px;
+  background: #f0ede6;
+  cursor: pointer;
+}
+
+button.clear:hover { background: #e6e1d5; }
+
+/* --- results ------------------------------------------------------------ */
+
+main {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 18px 20px 30px;
+}
+
+#result-count {
+  margin: 4px 0 14px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
+  gap: 14px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px 15px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.badge {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  padding: 4px 8px;
+  border-radius: 999px;
+}
+
+.sig-low { background: var(--green-bg); color: var(--green); }
+.sig-strong { background: var(--amber-bg); color: var(--amber-dark); }
+.sig-routine { background: var(--grey-bg); color: var(--muted); }
+
+.store {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.name {
+  margin: 2px 0 0;
+  font-size: 17px;
+  line-height: 1.3;
+}
+
+.cat {
+  margin: 0;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--muted);
+}
+
+.prices {
+  margin: 4px 0 0;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.sale {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.usual {
+  font-size: 15px;
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
+.pct {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--red);
+}
+
+.save {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--green);
+}
+
+.evidence {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text);
+}
+
+.checked {
+  margin: 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.store-link {
+  margin-top: auto;
+  padding-top: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0b5fff;
+  text-decoration: none;
+}
+
+.store-link:hover { text-decoration: underline; }
+
+.empty {
+  grid-column: 1 / -1;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  color: var(--muted);
+}
+
+/* --- legend and footer -------------------------------------------------- */
+
+.legend {
+  margin-top: 22px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px 18px;
+}
+
+.legend h2 { margin: 0 0 8px; font-size: 17px; }
+
+.legend ul { margin: 0; padding-left: 20px; font-size: 14px; }
+
+.legend li { margin: 4px 0; }
+
+.legend .badge { margin-right: 6px; }
+
+footer {
+  border-top: 1px solid var(--line);
+  padding: 18px 20px 26px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+footer .inner { max-width: 1180px; margin: 0 auto; }
+
+/* --- phone -------------------------------------------------------------- */
+
+@media (max-width: 640px) {
+  .brand h1 { font-size: 27px; }
+  .tagline { font-size: 15px; }
+  .filters { position: static; }
+  .filters select { max-width: none; flex: 1 1 40%; }
+  .grid { grid-template-columns: 1fr; }
+  .stat { min-width: 0; flex: 1 1 28%; }
+}
