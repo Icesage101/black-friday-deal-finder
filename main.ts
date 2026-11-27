@@ -11,7 +11,7 @@
 //   mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
 // In the grader MAKEFUN_OUTPUT_DIR is unset and /output is used.
 
-import { cpSync, existsSync, mkdirSync, rmSync, writeFileSync } from "node:fs";
+import { cpSync, existsSync, mkdirSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { buildDossier } from "./vendor/makefun-frontend.ts";
@@ -20,8 +20,13 @@ const repoRoot = fileURLToPath(new URL(".", import.meta.url));
 const outputDir = process.env.MAKEFUN_OUTPUT_DIR ?? "/output";
 
 // Start from a clean output directory so a second run writes the same bytes.
-rmSync(outputDir, { recursive: true, force: true });
+// Clear only the directory's contents, never the directory itself: in the
+// grader /output is a mounted empty directory, and removing a mount point
+// fails with EBUSY (that is what rejected round 1: exit code 1).
 mkdirSync(outputDir, { recursive: true });
+for (const entry of readdirSync(outputDir)) {
+  rmSync(join(outputDir, entry), { recursive: true, force: true });
+}
 
 const appSource = join(repoRoot, "app");
 const shotsSource = join(repoRoot, "screenshots");
